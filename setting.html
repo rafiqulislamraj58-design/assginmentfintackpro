@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="main-content">
+
+    <header class="topbar">
+        <h2 id="se">Settings</h2>
+    </header>
+
+    <section class="settings-page">
+        <div class="setting-card">
+
+            <h3>
+                <i class="fa-solid fa-user"></i>
+                Edit Profile
+            </h3>
+
+            <div class="form-group">
+                <label>Full Name</label>
+                <input
+                    type="text"
+                    id="userName"
+                    placeholder="Enter Name">
+            </div>
+
+            <div class="form-group">
+                <label>password</label>
+                <input
+                    type="password"
+                    id="userPass"
+                    placeholder="Enter pass">
+            </div>
+            <div class="form-group">
+                <label>Primary Currency</label>
+
+                <select id="currency">
+                    <option value="$">USD ($)</option>
+                    <option value="৳">BDT (৳)</option>
+                    <option value="€">EUR (€)</option>
+                    <option value="£">GBP (£)</option>
+                    <option value="₹">INR (₹)</option>
+                </select>
+            </div>
+
+            <button class="btn" id="saveProfile">
+                Save Changes
+            </button>
+
+        </div>
+        <div class="setting-card">
+
+            <h3>
+                <i class="fa-solid fa-palette"></i>
+                Preferences
+            </h3>
+
+            <div class="setting-row">
+
+                <span>Dark Mode</span>
+
+                <input
+                    type="checkbox"
+                    id="darkMode">
+
+            </div>
+        </div>
+        <div class="setting-card danger">
+
+            <h3>
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Danger Zone
+            </h3>
+
+            <p>
+                Reset all transactions permanently.
+            </p>
+
+            <button id="resetBtn" class="danger-btn">
+                Reset All Data
+            </button>
+            <button  class="Home-btn">
+                back Dashboard
+            </button>
+            <button id="logoutBtn" class="danger-btn">Logout</button>
+        </div>
+    </section>
+</main>
+<script src="./setting.js"></script>
+</body>
+</html>

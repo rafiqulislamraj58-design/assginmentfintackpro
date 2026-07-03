@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTrack Pro Dashboard</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+</head>
+
+<body>
+<div class="dashboard">
+    <aside class="sidebar">
+        <div class="logo">
+            <h2><i class="ri-stack-fill"></i>FinTrack</h2>
+            <p>pro</p>
+            <p>Enterprise Finance</p>
+        </div>
+        <nav>
+            <a href="#" class="active">
+                <i class="fa-solid fa-table-columns"></i>
+                Dashboard
+            </a>
+            <a href="./setting.html">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+        </nav>
+        <button class="add-btn" id="addTransactionBtn">
+            <i class="fa-solid fa-plus"></i>
+            Add Transaction
+        </button>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <h3 id="welcomeUser">
+                Welcome
+            </h3>
+            <button id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+        </header>
+
+        <section class="title">
+            <h1>Financial Overview</h1>
+            <p>Real-time tracking application</p>
+        </section>
+
+        <section class="cards">
+            <div class="card">
+                <h4>Current Balance</h4>
+                <h2 id="balance">$0.00</h2>
+            </div>
+            <div class="card">
+                <h4>Total Income</h4>
+                <h2 id="income">$0.00</h2>
+            </div>
+            <div class="card">
+                <h4>Total Expense</h4>
+                <h2 id="expense">$0.00</h2>
+            </div>
+            <div class="card">
+                <h4>Total Transactions</h4>
+                <h2 id="transactionCount">0</h2>
+            </div>
+        </section>
+
+        <section class="middle">
+            <div class="chart">
+                <h2>Cash Flow Analysis</h2>
+                <canvas id="myChart"></canvas>
+            </div>
+
+            <div class="setting">
+                <h2>Preferences</h2>
+                <label>
+                    Dark Mode
+                    <input type="checkbox" id="darkMode">
+                </label>
+                <button id="resetBtn">
+                    Reset All Data
+                </button>
+            </div>
+
+        </section>
+        <section class="transactions">
+            <h2>All Transactions</h2>
+            <div class="filters">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by Description">
+                <select id="filterType">
+                    <option value="all">All Types</option>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tableBody">
+                    <tr id="emptyRow">
+                        <td colspan="5" style="text-align:center;">
+                            No Transactions Found
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+</div>
+<div class="modal" id="transactionModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Add Transaction</h2>
+            <span id="closeModal">&times;</span>
+        </div>
+        <form id="transactionForm">
+            <input
+                type="text"
+                id="description"
+                placeholder="Description"
+                required>
+            <input
+                type="number"
+                id="amount"
+                placeholder="Amount"
+                min="1"
+                required>
+            <select id="type" required>
+                <option value="">Select Type</option>
+                <option value="income">
+                    Income
+                </option>
+                <option value="expense">
+                    Expense
+                </option>
+            </select>
+
+            <input
+                type="text"
+                id="category"
+                placeholder="Category"
+                required>
+            <input
+                type="date"
+                id="date"
+                required>
+
+            <button class="btn" type="submit">
+                Save Transaction
+            </button>
+        </form>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./dashboard.js"></script>
+</body>
+</html>
